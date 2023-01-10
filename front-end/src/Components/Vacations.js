@@ -1,5 +1,5 @@
 export default function Vacations(props){
-    const displayVacations = props.vacations.map((eachVacation)=> <li>{eachVaction}</li>)
+    const displayVacations = props.vacations.map((eachVacation)=> <li>{eachVacation}</li>)
 
     return(
         <div>

@@ -29,7 +29,7 @@ function App() {
         <div className="display">
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/vacations" element={<Vacations />} />
+                <Route path="/vacations" element={<Vacations vacations={[]}/>}  />
             </Routes>
         </div>
         
