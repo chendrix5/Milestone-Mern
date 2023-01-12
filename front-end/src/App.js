@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 
 import './App.css';
+import VacaForm from './Components/Create';
 
 import Home from './Components/Home'
 import Vacations from './Components/Vacations'
@@ -30,6 +31,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/vacations" element={<Vacations vacations={[]}/>}  />
+                <Route path="/addVacation" element={<VacaForm />} />
             </Routes>
         </div>
         
