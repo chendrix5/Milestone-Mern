@@ -1,3 +1,7 @@
+import React from 'react';
+import {} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 export default function Vacations(props){
     const displayVacations = props.vacations.map((eachVacation)=> <li>{eachVacation}</li>)
 

@@ -5,6 +5,9 @@ import './App.css';
 import Home from './Components/Home'
 import Vacations from './Components/Vacations'
 
+import {} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 
