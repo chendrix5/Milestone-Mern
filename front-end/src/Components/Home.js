@@ -2,7 +2,7 @@ import React from 'react';
 import {} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Home.css'
-import image from "./images/eiffel-tower-in-paris.jpg"
+import image from "../images/eiffel-tower-in-paris.jpg"
 
 
 export default function Home (){

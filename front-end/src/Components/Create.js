@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import image from './images/vacation-page.webp'
+import image from '../images/vacation-page.webp'
 import '../Create.css'
 
 export default function VacaForm(props) {
