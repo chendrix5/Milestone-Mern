@@ -19,7 +19,8 @@ export default function VacaForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         // axios request goes here....
-        axios.post({url: '/vacas', data: {name, pic, country, city, season, comment}})
+        axios.post('/add',
+         {data: {name, pic, country, city, season, comment}})
 
     }
 

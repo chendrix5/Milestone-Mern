@@ -3,13 +3,15 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const MernRoutes = express.Router()
+
 const PORT = 4000;
 
 let Mern = require('./Mern.model');
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static('../front-end/build'));
+
 
 mongoose.connect('mongodb://127.0.0.1:27017/Mern', { useNewUrlParser: true });
 const connection = mongoose.connection;
@@ -18,7 +20,7 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
-MernRoutes.route('/').get(function(req, res) { 
+app.get( '/',function(req, res) { 
     Mern.find(function(err, Mern) {
         if (err) {
             console.log(err);
@@ -28,14 +30,14 @@ MernRoutes.route('/').get(function(req, res) {
     });
 });
 
-MernRoutes.route('/:id').get(function(req, res) {
+app.get('/:id', function(req, res) {
     let id = req.params.id;
     Mern.findById(id, function(err, Mern) {
         res.json(Mern);
     });
 });
 
-MernRoutes.route('/update/:id').post(function(req, res) {
+app.post('/update/:id', function(req, res) {
     Mern.findById(req.params.id, function(err, Mern) {
         if (!Mern)
             res.status(404).send("data is not found");
@@ -52,7 +54,8 @@ MernRoutes.route('/update/:id').post(function(req, res) {
     });
 });
 
-MernRoutes.route('/add').post(function(req, res) {
+app.post('/add',function(req, res) { 
+    console.log('hit the post add route')
     let Mern = new Mern(req.body);
     Mern.save()
         .then(Mern => {
@@ -63,7 +66,7 @@ MernRoutes.route('/add').post(function(req, res) {
         });
 });
 
-app.use('/Mern', MernRoutes)
+
 
 
 app.listen(PORT, function() {
