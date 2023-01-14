@@ -3,8 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config()
+const PORT = process.env.PORT
 
-const PORT = 4000;
+
+
+
 
 let Mern = require('./Mern.model');
 
@@ -13,7 +17,7 @@ app.use(bodyParser.json());
 app.use(express.static('../front-end/build'));
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/Mern', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 connection.once('open', function() {
@@ -21,13 +25,13 @@ connection.once('open', function() {
 })
 
 app.get( '/',function(req, res) { 
-    Mern.find(function(err, Mern) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(Mern);
-        }
+    Mern.find({})
+    .then(result => {
+        // handle the result here
     });
+    .catch(err => {
+        // handle the error here
+    })
 });
 
 app.get('/:id', function(req, res) {
@@ -55,22 +59,20 @@ app.post('/update/:id', function(req, res) {
 });
 
 app.post('/add',function(req, res) { 
-    console.log('hit the post add route')
-    let Mern = new Mern(req.body);
-    Mern.save()
-        .then(Mern => {
-            res.status(200).json({'Mern': 'Added successfully'});
+    let doc = new Mern(req.body.data)
+    doc.save()
+        .then(result => {
+            res.status(200).json({message: 'Vacation added!', result})
         })
         .catch(err => {
-            res.status(400).send('adding new Mern failed');
-        });
-});
+            res.status(500).json({message: 'Vaction not added; error', err})
+        })
+})
 
 
 
 
-app.listen(PORT, function() {
-    console.log("Server is running on Port: " + PORT);
-});
+app.listen(PORT, () => console.log(`Server is running in ${PORT}`))
+
 
 

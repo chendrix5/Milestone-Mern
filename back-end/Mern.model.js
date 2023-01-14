@@ -2,13 +2,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Mern = new Schema({
-    Mern_location: {
+    name: {
         type: String
     },
-    Mern_type: {
+    pic: {
         type: String
     },
-    Mern_season: {
+    country: {
+        type: String
+    },
+    city: {
+        type: String
+    },
+    season: {
+        type: String
+    },
+    comment: {
         type: String
     }
 });

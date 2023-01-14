@@ -21,6 +21,12 @@ export default function VacaForm(props) {
         // axios request goes here....
         axios.post('/add',
          {data: {name, pic, country, city, season, comment}})
+         .then(result  => {
+            // put behavior here for what to do when post succeeds
+         })
+         .catch(err => {
+            // put behavior here for what to do when post fails
+         })
 
     }
 
