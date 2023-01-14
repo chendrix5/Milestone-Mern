@@ -56,14 +56,14 @@ MernRoutes.route('/add').post(function(req, res) {
     let Mern = new Mern(req.body);
     Mern.save()
         .then(Mern => {
-            res.status(200).json({'Mern': 'Mern added successfully'});
+            res.status(200).json({'Mern': 'Added successfully'});
         })
         .catch(err => {
             res.status(400).send('adding new Mern failed');
         });
 });
 
-app.use('/Merns', MernRoutes)
+app.use('/Mern', MernRoutes)
 
 
 app.listen(PORT, function() {
