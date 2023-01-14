@@ -24,9 +24,6 @@ export default function Vacations(props){
                     {displayVacations}
                 </ul>
             </div>
-            <div>
-            <img src="./images/vacation-page.webp" alt="Vacation" />
-        </div>
         </div>
     )
 }
