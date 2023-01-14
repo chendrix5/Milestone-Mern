@@ -18,7 +18,7 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
-MernRoutes.route('/').get(function(req, res) {
+MernRoutes.route('/').get(function(req, res) { 
     Mern.find(function(err, Mern) {
         if (err) {
             console.log(err);
