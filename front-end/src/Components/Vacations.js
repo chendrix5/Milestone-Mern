@@ -7,7 +7,7 @@ import {} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import '../Vacations.css'
-import image from '../Images/vacation-page.webp'
+import image from '../images/vacation-page.webp'
 
 
 export default function Vacations(props){
@@ -24,9 +24,6 @@ export default function Vacations(props){
                     {displayVacations}
                 </ul>
             </div>
-            <div>
-            <img src="./images/vacation-page.webp" alt="Vacation" />
-        </div>
         </div>
     )
 }
