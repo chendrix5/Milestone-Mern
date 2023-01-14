@@ -25,7 +25,7 @@ export default function VacaForm(props) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form id="vacaform" onSubmit={handleSubmit}>
             <div>
                 <input type="text" id="name" value={name} name="name" onChange={handleChange} placeholder="Your Name" />
             </div>
@@ -52,7 +52,7 @@ export default function VacaForm(props) {
             <div>
                 <input type="text" id="comment" name="comment" value={comment} onChange={handleChange} placeholder="Enter Comment" />
             </div>
-            <input type="submit" value="Add Vacation>" />
+            <input type="submit" value="Add Vacation" />
         </form>
     )
 }
