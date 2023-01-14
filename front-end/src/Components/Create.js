@@ -1,7 +1,5 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import image from '../images/vacation-page.webp'
-import '../Create.css'
 
 export default function VacaForm(props) {
     const [name, setName] = useState('')
@@ -21,25 +19,25 @@ export default function VacaForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         // axios request goes here....
-        axios.post({url: '/vacas', data: {name, pic, country, city, season, comment}})
+        axios.post({url: '/add', data: {name, pic, country, city, season, comment}})
 
     }
 
     return (
-        <form class="form" style={{ backgroundImage:`url(${image})`, backgroundRepeat:"no-repeat", backgroundSize:"contain", height:1500, width: 1202 }} onSubmit={handleSubmit}>
-            <div class="name">
+        <form id="vacaform" onSubmit={handleSubmit}>
+            <div>
                 <input type="text" id="name" value={name} name="name" onChange={handleChange} placeholder="Your Name" />
             </div>
-            <div class="pic">
+            <div>
                 <input type="url" id="pic" name="pic" value={pic} onChange={handleChange} placeholder="Enter Vacation picture" />
             </div>
-            <div class="country">
+            <div>
                 <input type="text" id="country" name="country" value={country} onChange={handleChange}  placeholder="Country" />
             </div>
-            <div class="city">
+            <div>
                 <input type="text" id="city" name="city" value={city} onChange={handleChange} placeholder="City" />
             </div>
-            <div class="season">
+            <div>
                 <label>Choose your season from the list:</label>
 
                 <select id="season" name="season" value={season} onChange={handleChange}>
@@ -50,10 +48,10 @@ export default function VacaForm(props) {
                 </select>
             </div>
 
-            <div class="comment">
+            <div>
                 <input type="text" id="comment" name="comment" value={comment} onChange={handleChange} placeholder="Enter Comment" />
             </div>
-            <input class="btn btn-warning" type="submit" value="Add Vacation>" />
+            <input type="submit" value="Add Vacation" />
         </form>
     )
 }
