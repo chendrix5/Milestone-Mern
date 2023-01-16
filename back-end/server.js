@@ -5,12 +5,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config()
 const PORT = process.env.PORT
-
-
-
-
-
 let Mern = require('./Mern.model');
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -27,11 +23,11 @@ connection.once('open', function() {
 app.get( '/',function(req, res) { 
     Mern.find({})
     .then(result => {
-        // handle the result here
-    });
-    .catch(err => {
-        // handle the error here
+        res.json(result);
     })
+    .catch(err => {
+        res.status(500).json({ error: 'An error occurred: ' + err });
+    });
 });
 
 app.get('/:id', function(req, res) {
@@ -46,9 +42,12 @@ app.post('/update/:id', function(req, res) {
         if (!Mern)
             res.status(404).send("data is not found");
         else
-            Mern.Mern_location = req.body.Mern_location;
-            Mern.Mern_type = req.body.Mern_type;
-            Mern.Mern_season = req.body.Mern_season;
+            Mern.Mern_location = req.body.name;
+            Mern.Mern_type = req.body.pic;
+            Mern.Mern_season = req.body.country;
+            Mern.Mern_season = req.body.city;
+            Mern.Mern_season = req.body.season;
+            Mern.Mern_season = req.body.comment;
             Mern.save().then(Mern => {
                 res.json('Mern updated!');
             })
