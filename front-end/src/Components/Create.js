@@ -23,10 +23,9 @@ export default function VacaForm(props) {
         // axios request goes here....
         axios.post('/add',
          {data: {name, pic, country, city, season, comment}})
-         .then(result  => {
+         .then(result  => {return result.data}
             // put behavior here for what to do when post succeeds
-            console.log(result.data)
-         })
+        )
          .catch(err => {
             // put behavior here for what to do when post fails
             console.log(err)
@@ -36,19 +35,19 @@ export default function VacaForm(props) {
 
     return (
         <form style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", backgroundSize:"contain", height:1200, width:1202}} id="vacaform" onSubmit={handleSubmit}>
-            <div class="name">
+            <div className="name">
                 <input type="text" id="name" value={name} name="name" onChange={handleChange} placeholder="Your Name" />
             </div>
-            <div class="pic">
+            <div className="pic">
                 <input type="url" id="pic" name="pic" value={pic} onChange={handleChange} placeholder="Enter Vacation picture" />
             </div>
-            <div class="country">
+            <div className="country">
                 <input type="text" id="country" name="country" value={country} onChange={handleChange}  placeholder="Country" />
             </div>
-            <div class="city">
+            <div className="city">
                 <input type="text" id="city" name="city" value={city} onChange={handleChange} placeholder="City" />
             </div>
-            <div class="season">
+            <div className="season">
                 <label>Choose your season from the list:</label>
 
                 <select id="season" name="season" value={season} onChange={handleChange}>
@@ -59,10 +58,10 @@ export default function VacaForm(props) {
                 </select>
             </div>
 
-            <div class="comment">
-                <input type="text" id="comment" name="comment" value={comment} onChange={handleChange} placeholder="Enter Comment" />
+            <div className="comment">
+                <input type="text" id="comment" className="comment" value={comment} onChange={handleChange} placeholder="Enter Comment" />
             </div>
-            <input class="btn btn-warning" type="submit" value="Add Vacation" />
+            <input className="btn btn-warning" type="submit" value="Add Vacation" />
         </form>
     )
 }
