@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config()
 const PORT = process.env.PORT
-let Mern = require('./Mern.model');
+const Mern = require('./Mernmodel');
 
 
 app.use(cors());
@@ -20,8 +20,8 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
-app.get( '/',function(req, res) { 
-    Mern.find({})
+app.get( '/vacations',function(req, res) { 
+    Mern.find()
     .then(result => {
         res.json(result);
     })
@@ -57,15 +57,12 @@ app.post('/update/:id', function(req, res) {
     });
 });
 
-app.post('/add',function(req, res) { 
-    let doc = new Mern(req.body.data)
-    doc.save()
-        .then(result => {
-            res.status(200).json({message: 'Vacation added!', result})
-        })
-        .catch(err => {
-            res.status(500).json({message: 'Vaction not added; error', err})
-        })
+app.post('/add', async function(req, res) { 
+   
+    let doc = await Mern.create(req.body)
+        res.redirect("/vacations")
+    
+        
 })
 
 

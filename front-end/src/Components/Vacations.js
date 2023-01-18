@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
+import {useState} from 'react'
 
 
 
@@ -17,12 +18,14 @@ export default function Vacations(){
     const displayVacations = vacations.map((eachVacation)=> <li>{eachVacation}</li>)
 
     useEffect(()=>{
-        axios.get('some url goes here')
+        axios.get('/vacations')
             .then(response => {
                 // handle the positive response from the server
+                setVacations(response.data)
             })
             .catch(err => {
                 // handle any errors
+                console.log(err)
             })
     }, [])
      

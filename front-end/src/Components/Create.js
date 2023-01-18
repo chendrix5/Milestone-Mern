@@ -25,9 +25,11 @@ export default function VacaForm(props) {
          {data: {name, pic, country, city, season, comment}})
          .then(result  => {
             // put behavior here for what to do when post succeeds
+            console.log(result.data)
          })
          .catch(err => {
             // put behavior here for what to do when post fails
+            console.log(err)
          })
 
     }
