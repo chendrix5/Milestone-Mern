@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.649c148b.css",
+    "main.js": "/static/js/main.96000b83.js",
+    "static/js/787.22edae46.chunk.js": "/static/js/787.22edae46.chunk.js",
+    "static/media/eiffel-tower-in-paris.jpg": "/static/media/eiffel-tower-in-paris.c936aa35da070317cfef.jpg",
+    "static/media/vacation-page.webp": "/static/media/vacation-page.a3fe96d6b4fb48fcf59d.webp",
+    "index.html": "/index.html",
+    "main.649c148b.css.map": "/static/css/main.649c148b.css.map",
+    "main.96000b83.js.map": "/static/js/main.96000b83.js.map",
+    "787.22edae46.chunk.js.map": "/static/js/787.22edae46.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.649c148b.css",
+    "static/js/main.96000b83.js"
+  ]
+}
