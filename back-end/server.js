@@ -42,14 +42,14 @@ app.post('/update/:id', function(req, res) {
         if (!Mern)
             res.status(404).send("data is not found");
         else
-            Mern.Mern_location = req.body.name;
-            Mern.Mern_type = req.body.pic;
-            Mern.Mern_season = req.body.country;
-            Mern.Mern_season = req.body.city;
+            Mern.Mern_name = req.body.name;
+            Mern.Mern_pic = req.body.pic;
+            Mern.Mern_country = req.body.country;
+            Mern.Mern_city = req.body.city;
             Mern.Mern_season = req.body.season;
-            Mern.Mern_season = req.body.comment;
+            Mern.Mern_comment = req.body.comment;
             Mern.save().then(Mern => {
-                res.json('Mern updated!');
+                res.json('updated!');
             })
             .catch(err => {
                 res.status(400).send("Update not possible");
